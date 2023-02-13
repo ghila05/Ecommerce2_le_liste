@@ -10,10 +10,11 @@ namespace Ecommerce2_lavendetta
     public class Carrello
     {
         
-        private const int MAXCARR = 999;
+        //private const int MAXCARR = 999;
         private string _id;
-        private int currentLenght;
-        private Prodotto[] _prod = new Prodotto[MAXCARR];
+        //private int currentLenght;
+        //private Prodotto[] _prod = new Prodotto[MAXCARR];
+        List<Prodotto> lista = new List<Prodotto>();
         private Prodotto p = new Prodotto();
 
         public string Id
@@ -35,10 +36,10 @@ namespace Ecommerce2_lavendetta
         {
             get
             {
-                Prodotto[] p = new Prodotto[currentLenght];
-                for (int i = 0; i < currentLenght; i++)
+                Prodotto[] p = new Prodotto[lista.Count];
+                for (int i = 0; i < lista.Count; i++)
                 {
-                    p[i] = _prod[i];
+                    p[i] = lista[i];
                 }
                 return p;
             }
@@ -54,12 +55,12 @@ namespace Ecommerce2_lavendetta
         protected Carrello(Carrello c) : this(c.Id)
         {
             Id = c.Id;
-            currentLenght = c.currentLenght;
-            for (int i = 0; i < c._prod.Length; i++)
+           
+            for (int i = 0; i < c.lista.Count; i++)
             {
-                if (c._prod[i] != null)
+                if (c.lista[i] != null)
                 {
-                    _prod[i] = c._prod[i].Clone();
+                    lista[i] = c.lista[i].Clone();
                 }
             }
 
@@ -74,22 +75,18 @@ namespace Ecommerce2_lavendetta
         //metodi specifici
         public void Svuota()
         {
-            currentLenght = 0;
-            for (int i = 0; i < _prod.Length; i++)
-                _prod[i] = null;
+
+            for (int i = 0; i < lista.Count; i++)
+                lista[i] = null;
         }
         public void Aggiungi(Prodotto p)
         {
 
-            if (currentLenght == MAXCARR)
-            {
-                throw new Exception("Impossibile aggiungere, dimensione massima carrello raggiunta");
-            }
 
             if (p != null)
             {
-                _prod[currentLenght] = p;
-                ++currentLenght;
+                lista.Add(p);
+
             }
             else
                 throw new Exception("Inserire un prodotto valido");
@@ -97,17 +94,14 @@ namespace Ecommerce2_lavendetta
 
         private int GetNumProdotti()
         {
-            if (currentLenght != _prod.Length)
-                return currentLenght;
-            else
-                throw new Exception("Il carrello è pieno");
+            return lista.Count;
         }
 
         public int Esiste(Prodotto q)
         {
-            for (int i = 0; i < currentLenght; i++)
+            for (int i = 0; i < lista.Count; i++)
             {
-                if (_prod[i].Equals(q))
+                if (lista[i].Equals(q))
                     return i;
             }
             return -1;
@@ -117,12 +111,12 @@ namespace Ecommerce2_lavendetta
         {
             if (Esiste(p) != -1)
             {
-                for (int i = Esiste(p); i < _prod.Length - 1; i++)
-                    _prod[i] = _prod[i + 1];
+                for (int i = Esiste(p); i < lista.Count - 1; i++)
+                    lista[i] = lista[i + 1];
 
-                _prod[_prod.Length - 1] = null;
+                lista[lista.Count - 1] = null;
 
-                --currentLenght;
+
 
                 return p;
             }
@@ -132,11 +126,11 @@ namespace Ecommerce2_lavendetta
 
         public void Eliminadaid(string id)
         {
-            for (int i=0; i<currentLenght; i++)
+            for (int i=0; i<lista.Count; i++)
             {
-                if(_prod[i].Id == id)
+                if(lista[i].Id == id)
                 {
-                    Rimuovi(_prod[i]);
+                    Rimuovi(lista[i]);
 
                 }
             }
