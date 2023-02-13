@@ -28,8 +28,6 @@ namespace Ecommerce2_lavendetta
             }
         }
 
-
-
         public Alimentare(string[] ingredienti, DateTime scadenza,string id, string nome,string prod,string descr,float prezzo) :base (id,nome,prod,descr,prezzo) 
         {
             Ingredienti = ingredienti;

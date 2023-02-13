@@ -166,7 +166,7 @@ namespace Ecommerce2_lavendetta
         {
             string id;
             id = listView1.SelectedItems[0].SubItems[0].Text;
-            MessageBox.Show(id);
+
             c.Eliminadaid(id);
             scontato = scontato - p.getPrezzo();
             if (listView1.SelectedItems.Count > 0)

@@ -82,11 +82,9 @@ namespace Ecommerce2_lavendetta
         public void Aggiungi(Prodotto p)
         {
 
-
             if (p != null)
             {
                 lista.Add(p);
-
             }
             else
                 throw new Exception("Inserire un prodotto valido");
@@ -137,9 +135,6 @@ namespace Ecommerce2_lavendetta
    
 
         }
-
-
-
 
     }
 }
