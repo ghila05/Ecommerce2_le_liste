@@ -175,11 +175,6 @@ namespace Ecommerce2_lavendetta
             }
 
         }
-        public Prodotto CreaProdTemp(string id, string nome, string prod, string descr, float prezz)
-        {
-            Prodotto p = new Prodotto(id, nome, prod, descr, prezz);
-            return p;
-        }
 
         private void butnProddefault_Click(object sender, EventArgs e)
         {

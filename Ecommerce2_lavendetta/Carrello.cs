@@ -51,6 +51,7 @@ namespace Ecommerce2_lavendetta
             this.Id = id;
             Svuota();
         }
+        /*
 
         protected Carrello(Carrello c) : this(c.Id)
         {
@@ -60,7 +61,7 @@ namespace Ecommerce2_lavendetta
             {
                 if (c.lista[i] != null)
                 {
-                    lista[i] = c.lista[i].Clone();
+                    lista[i] = c.lista[i].Clone();          CLONE DA IMPLEMENTARE CON LE LISTE 
                 }
             }
 
@@ -71,6 +72,7 @@ namespace Ecommerce2_lavendetta
         {
             return new Carrello(this);
         }
+        */
 
         //metodi specifici
         public void Svuota()

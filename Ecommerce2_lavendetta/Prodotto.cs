@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Ecommerce2_lavendetta
 {
 
-    public class Prodotto
+    public  class Prodotto
     {
        
         private string _id, _nome, _produttore, _descrizione;
@@ -112,11 +112,8 @@ namespace Ecommerce2_lavendetta
         {
         }
 
-        //clone
-        public Prodotto Clone()
-        {
-            return new Prodotto(this);
-        }
+
+
 
 
         //Equals
