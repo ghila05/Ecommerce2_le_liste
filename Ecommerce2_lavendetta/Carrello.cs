@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Ecommerce2_lavendetta
 {
 
-    public class Carrello
+    public class Carrello 
     {
         
         //private const int MAXCARR = 999;
@@ -137,6 +137,8 @@ namespace Ecommerce2_lavendetta
    
 
         }
+
+
 
     }
 }

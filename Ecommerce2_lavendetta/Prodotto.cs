@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Ecommerce2_lavendetta
 {
 
-    public  class Prodotto
+    public  class Prodotto : IEquatable<Prodotto>
     {
        
         private string _id, _nome, _produttore, _descrizione;
